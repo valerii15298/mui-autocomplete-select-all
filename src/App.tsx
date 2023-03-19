@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useMemo } from "react";
+import Checkbox from "@mui/material/Checkbox";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import { MuiAutocompleteSelectAll } from ".";
 
-function App() {
-  const [count, setCount] = useState(0)
+export function App() {
+  const [value, setValue] = useState<string[]>([]);
+  const options = useMemo(
+    () => new Array(100).fill(0).map((_, i) => i.toString()),
+    []
+  );
 
+  const selectedAll = value.length === options.length;
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <MuiAutocompleteSelectAll.Provider
+      value={{
+        onSelectAll: (selectedAll) => void setValue(selectedAll ? [] : options),
+        selectedAll,
+        indeterminate: !!value.length && !selectedAll,
+      }}
+    >
+      <Autocomplete
+        value={value}
+        onChange={(_, newValue) => void setValue(newValue)}
+        sx={{ width: 200, m: "auto" }}
+        disableCloseOnSelect
+        multiple
+        limitTags={3}
+        ListboxComponent={MuiAutocompleteSelectAll.ListBox}
+        disablePortal
+        options={options}
+        renderInput={(params) => <TextField {...params} />}
+        renderOption={(props, option, { selected }) => (
+          <li key={option} {...props}>
+            <Checkbox checked={selected} />
+            {option}
+          </li>
+        )}
+      />
+    </MuiAutocompleteSelectAll.Provider>
+  );
 }
-
-export default App
