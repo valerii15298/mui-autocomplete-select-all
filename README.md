@@ -4,7 +4,7 @@ Dead simple select all functionality for MUI [Autocomplete](https://mui.com/mate
 
 ## Usage example
 
-```ts
+```tsx
 import { useState, useMemo } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import TextField from "@mui/material/TextField";
