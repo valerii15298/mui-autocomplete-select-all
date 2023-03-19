@@ -1,5 +1,25 @@
 {
   "name": "mui-autocomplete-select-all",
+  "author": "Valerii Petryniak <valerii15298@gmail.com> (https://valerii15298.github.io/)",
+  "description": "Dead simple select all functionality for MUI Autocomplete",
+  "license": "MIT",
+  "homepage": "https://github.com/valerii15298/mui-autocomplete-select-all",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valerii15298/mui-autocomplete-select-all"
+  },
+  "bugs": {
+    "url": "https://github.com/valerii15298/mui-autocomplete-select-all/issues"
+  },
+  "keywords": [
+    "react",
+    "mui",
+    "material-ui",
+    "mui-autocomplete",
+    "select",
+    "select-all",
+    "multi-select"
+  ],
   "private": false,
   "version": "0.0.0",
   "type": "module",
