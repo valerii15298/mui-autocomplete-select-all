@@ -9,7 +9,7 @@ import { useState, useMemo } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import { MuiAutocompleteSelectAll } from ".";
+import { MuiAutocompleteSelectAll } from "mui-autocomplete-select-all";
 
 export function App() {
   const [value, setValue] = useState<string[]>([]);
@@ -52,9 +52,17 @@ export function App() {
 
 ## Quickstart
 
+### Install via preferred package manager
+
+```bash
+npm install mui-autocomplete-select-all
+yarn add mui-autocomplete-select-all
+pnpm add mui-autocomplete-select-all
+```
+
 ### Import `MuiAutocompleteSelectAll`:
 
-    import { MuiAutocompleteSelectAll } from ".";
+    import { MuiAutocompleteSelectAll } from "mui-autocomplete-select-all";
 
 ### Wrap your autocomplete in MuiAutocompleteSelectAll.Provider and provide value with `onSelectAll`, `selectedAll` and optionally `indeterminate` values:
 
